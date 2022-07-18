@@ -5,6 +5,7 @@ const AuthController = require('../controller/AuthController')
 
 route.post('/login', AuthController.logIn)
 route.post('/register', AuthController.register)
+route.get('/getalluser', AuthController.getAllUser)
 route.get('/protected', passport.authenticate('jwt', {session: false}), AuthController.protectedRoute)
 
 module.exports = route

@@ -46,5 +46,13 @@ const register = async (req, res)=>{
             user: req.user.role
         })
     }
+    const getAllUser = async (req, res)=>{
+        try{
+            const users = await userModel.find({role: "user"})
+            res.status(200).json(users)
+        }catch(err){
+            console.log(err)
+        }
+    }
 
-module.exports = { logIn, register, protectedRoute}
+module.exports = { logIn, register, protectedRoute, getAllUser}
